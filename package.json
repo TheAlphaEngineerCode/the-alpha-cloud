@@ -1,0 +1,38 @@
+{
+  "name": "cloud",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Cloud Infrastructure Control Plane — open source platform for managing, automating and observing cloud, containers, Kubernetes and on-prem infrastructure in a single operational layer.",
+  "license": "Apache-2.0",
+  "author": "William Oliveira",
+  "homepage": "https://github.com/TheAlphaEngineerCode/cloud",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheAlphaEngineerCode/cloud.git"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:coverage": "turbo run test:coverage",
+    "dev": "turbo run dev --parallel",
+    "clean": "turbo run clean && rimraf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml,css}\"",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml,css}\""
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@types/node": "^22.13.0",
+    "eslint": "^9.20.0",
+    "prettier": "^3.4.2",
+    "rimraf": "^6.0.1",
+    "turbo": "^2.5.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.65.0"
+  }
+}

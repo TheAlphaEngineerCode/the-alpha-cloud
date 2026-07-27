@@ -1,0 +1,30 @@
+# Normalize line endings — keep LF in the repo, let checkout use OS default
+* text=auto eol=lf
+
+# Source code: always LF
+*.ts text eol=lf
+*.tsx text eol=lf
+*.js text eol=lf
+*.mjs text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.yaml text eol=lf
+*.yml text eol=lf
+*.sql text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+
+# Scripts: keep LF (Makefile is TAB-sensitive, .sh is LF)
+*.sh text eol=lf
+Makefile text eol=lf
+
+# Binary blobs: never diff
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary
+*.ico binary
+*.woff binary
+*.woff2 binary

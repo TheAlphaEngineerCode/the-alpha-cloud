@@ -1,0 +1,16 @@
+{
+  "name": "@cloud/docs",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "echo 'docs site scaffold — Phase 2 ships Docusaurus'",
+    "build": "echo 'docs site scaffold — Phase 2 ships Docusaurus'",
+    "lint": "echo 'no docs lint yet'",
+    "typecheck": "echo 'no docs typecheck'",
+    "clean": "rimraf .turbo"
+  },
+  "devDependencies": {
+    "rimraf": "^6.0.1"
+  }
+}

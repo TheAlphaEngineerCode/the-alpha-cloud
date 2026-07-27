@@ -1,0 +1,15 @@
+node_modules/
+dist/
+build/
+.next/
+out/
+coverage/
+.turbo/
+.cache/
+pnpm-lock.yaml
+package-lock.json
+yarn.lock
+*.md
+*.mdx
+CHANGELOG.md
+LICENSE

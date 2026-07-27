@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build outputs
+dist/
+build/
+.next/
+out/
+*.tsbuildinfo
+
+# Test / coverage
+coverage/
+.nyc_output/
+*.lcov
+
+# Caches
+.turbo/
+.cache/
+
+# Environment
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/extensions.json
+.DS_Store
+Thumbs.db
+
+# Database
+*.sqlite
+*.db
+
+# Kubernetes / secrets
+*.key
+*.pem
+*.crt
+secrets.yaml
+secrets.*.yaml
+
+# Terraform / OpenTofu
+*.tfstate
+*.tfstate.*
+*.tofustate
+*.tofustate.*
+.terraform/
+.opentofu/
+
+# Misc
+.tmp/
+tmp/
