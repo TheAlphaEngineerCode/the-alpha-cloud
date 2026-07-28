@@ -1,25 +1,30 @@
-# 🛰️ The Alpha Cloud — Cloud Infrastructure Control Plane
+<div align="center">
 
-> > The Alpha Cloud — open source control plane for managing, automating and observing
-> cloud, containers, Kubernetes and on-prem infrastructure in a single operational layer.
+# The Alpha Cloud
 
-**The Alpha Cloud** answers one operational question:
+**A cloud infrastructure control plane — not another dashboard.**
 
-> *What is running, where is it running, how much does it cost, what depends on it,
-> what state is it in, what risks does it carry, and what happens if something
-> changes or fails?*
+It discovers infrastructure, builds a topology graph that powers blast-radius analysis,
+provisions environments, executes deployments, observes workloads, controls costs, detects risks,
+applies policies and automates operations — and it **audits every mutation it makes**.
 
-It is **not** another dashboard. The Alpha Cloud is a control plane: it discovers
-infrastructure, builds a topology graph that powers blast-radius analysis,
-provisions environments, executes deployments, observes workloads, controls
-costs, detects risks, applies policies, automates operations — and audits every
-mutation it makes.
+[![CI](https://github.com/TheAlphaEngineerCode/the-alpha-cloud/actions/workflows/ci.yml/badge.svg)](https://github.com/TheAlphaEngineerCode/the-alpha-cloud/actions/workflows/ci.yml)
+[![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](./LICENSE)
+[![TypeScript strict](https://img.shields.io/badge/TypeScript-strict-3178c6.svg)](./tsconfig.base.json)
+[![Phase](https://img.shields.io/badge/phase-0--1%20of%2014-orange.svg)](./ROADMAP.md)
 
-## ⚖️ License
+</div>
 
-Apache License 2.0. See [`LICENSE`](./LICENSE).
+---
 
-## ⚠️ Implementation status
+The one operational question it exists to answer:
+
+> _What is running, where is it running, how much does it cost, what depends on it, what state is
+> it in, what risks does it carry, and what happens if something changes or fails?_
+
+---
+
+## Current state — read this before cloning
 
 This repository is in **Phase 0–1** of a 14-phase roadmap (see
 [`IMPLEMENTATION_STATUS.md`](./IMPLEMENTATION_STATUS.md) and
@@ -37,7 +42,7 @@ Topology, deployments, Kubernetes, observability, FinOps, security, IaC and
 automation are not implemented yet. There is no real cloud connector; the
 [`simulator`](docs/adr/0008-cloud-simulator.md) connector is part of Phase 2.
 
-## 🧱 Stack
+## Stack
 
 | Layer | Technology | Role |
 | --- | --- | --- |
@@ -56,7 +61,7 @@ automation are not implemented yet. There is no real cloud connector; the
 See [`docs/adr/`](./docs/adr) for every architectural decision and the trade-off
 that produced it.
 
-## 🚀 Quick start
+## Quick start
 
 ```bash
 git clone https://github.com/TheAlphaEngineerCode/the-alpha-cloud
@@ -82,10 +87,10 @@ seeded organization (`Alpha Cloud Labs`).
 Without Docker? `apps/api` works against an external `DATABASE_URL` — point
 `.env` at your existing Postgres and skip `docker-up`.
 
-## 🗂️ Repository layout
+## Repository layout
 
 ```text
-cloud/
+the-alpha-cloud/
 ├── apps/
 │   ├── web/         Next.js operator console
 │   ├── api/         Fastify HTTP/SSE API
@@ -100,7 +105,7 @@ cloud/
 └── .github/         CI workflows, dependabot
 ```
 
-## 🔐 Security posture
+## Security posture
 
 - Argon2id password hashing (RFC 9106 normative default).
 - Opaque session tokens stored as SHA-256 hash in Postgres — raw token never persists.
@@ -115,7 +120,7 @@ cloud/
 Unimplemented controls are listed explicitly in `THREAT_MODEL.md` so a
 contributor never assumes a control exists when it does not.
 
-## 🤝 Contributing
+## Contributing
 
 See [`CONTRIBUTING.md`](./CONTRIBUTING.md). Brief version:
 
@@ -124,10 +129,14 @@ See [`CONTRIBUTING.md`](./CONTRIBUTING.md). Brief version:
 - New `DESTRUCTIVE` actions require an approval path (ADR-0010).
 - No co-author attribution to AI agents (by repo convention).
 
-## 🔎 Where to read next
+## Where to read next
 
 - [`ARCHITECTURE.md`](./ARCHITECTURE.md) — design at a glance.
 - [`IMPLEMENTATION_STATUS.md`](./IMPLEMENTATION_STATUS.md) — live progress.
 - [`ROADMAP.md`](./ROADMAP.md) — 14 phases.
 - [`THREAT_MODEL.md`](./THREAT_MODEL.md) — what we protect against and what isn't yet.
 - [`docs/adr/`](./docs/adr) — every architectural decision recorded.
+
+## License
+
+Apache License 2.0. See [`LICENSE`](./LICENSE).
