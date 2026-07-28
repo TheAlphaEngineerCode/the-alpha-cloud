@@ -32,7 +32,7 @@ Execution rules:
 ## Consequences
 - ✅ Untrusted HCL cannot reach host filesystem or arbitrary network.
 - ✅ State cannot drift on a per-environment basis; it is centralized.
-- ⚠️ Self-hosters need a container runtime to use IaC at all. Acceptable — CLOUD stops here,
+- ⚠️ Self-hosters need a container runtime to use IaC at all. Acceptable — The Alpha Cloud stops here,
   not silently runs OpenTofu bare on host.
 
 ## Alternatives considered

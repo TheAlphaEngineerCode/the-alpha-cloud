@@ -42,7 +42,7 @@ async function start() {
   const app = await buildApp({ deps, repos, bus });
   try {
     await app.listen({ host: env.API_HOST, port: env.API_PORT });
-    log.info({ host: env.API_HOST, port: env.API_PORT }, 'CLOUD API listening');
+    log.info({ host: env.API_HOST, port: env.API_PORT }, 'The Alpha Cloud API listening');
   } catch (err) {
     log.error({ err }, 'listen failed');
     await app.close();

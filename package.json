@@ -1,14 +1,14 @@
 {
-  "name": "cloud",
+  "name": "the-alpha-cloud",
   "version": "0.0.0",
   "private": true,
-  "description": "Cloud Infrastructure Control Plane — open source platform for managing, automating and observing cloud, containers, Kubernetes and on-prem infrastructure in a single operational layer.",
+  "description": "The Alpha Cloud — open source Cloud Infrastructure Control Plane for managing, automating and observing cloud, containers, Kubernetes and on-prem infrastructure in a single operational layer.",
   "license": "Apache-2.0",
   "author": "William Oliveira",
-  "homepage": "https://github.com/TheAlphaEngineerCode/cloud",
+  "homepage": "https://github.com/TheAlphaEngineerCode/the-alpha-cloud",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TheAlphaEngineerCode/cloud.git"
+    "url": "https://github.com/TheAlphaEngineerCode/the-alpha-cloud.git"
   },
   "packageManager": "pnpm@9.15.0",
   "engines": {

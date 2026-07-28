@@ -8,7 +8,7 @@ date: 2026-07-27
 # ADR-0004 — Provider abstraction with the cloud never leaking
 
 ## Context
-CLOUD must support AWS, Azure, GCP, Kubernetes, Docker and local — without any provider SDK
+The Alpha Cloud must support AWS, Azure, GCP, Kubernetes, Docker and local — without any provider SDK
 becoming part of the core. Letting `aws-sdk` calls escape the connector would couple
 inventory, cost and topology logic to one vendor and make adding providers a rewrite.
 

@@ -2,7 +2,7 @@
 
 # Default target
 help:
-	@echo "CLOUD — available make targets:"
+	@echo "The Alpha Cloud — available make targets:"
 	@echo "  setup          Install dependencies"
 	@echo "  dev            Run all apps in dev mode (web + api + worker)"
 	@echo "  test           Run unit + integration tests"

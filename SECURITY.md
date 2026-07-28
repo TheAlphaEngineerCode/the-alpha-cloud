@@ -1,6 +1,6 @@
 # Security policy
 
-CLOUD is an infrastructure control plane — a privileged operator surface. The
+The Alpha Cloud is an infrastructure control plane — a privileged operator surface. The
 security model is built around the assumption that **a compromised operator
 account or a malicious connector should not be able to silently mutate or
 exfiltrate another tenant's infrastructure**.
@@ -33,7 +33,7 @@ backport policy yet — once a `1.0` line exists, this section will pin it.
 These items are declared here so a contributor or auditor never assumes a
 protection exists when it doesn't:
 
-- **No TLS termination in-process.** Production deployments must front CLOUD with
+- **No TLS termination in-process.** Production deployments must front The Alpha Cloud with
   a TLS-capable reverse proxy or use `secure-cookies` behind a TLS endpoint.
 - **No Postgres Row-Level Security (RLS).** Tenant isolation is enforced in
   application code today (ADR-0009). RLS is a hardening step scheduled for

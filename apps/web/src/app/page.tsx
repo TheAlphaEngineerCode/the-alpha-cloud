@@ -14,7 +14,7 @@ export default function HomePage() {
         lineHeight: 1.55,
       }}
     >
-      <h1 style={{ fontSize: '2.2rem', marginBottom: '0.4rem' }}>CLOUD</h1>
+      <h1 style={{ fontSize: '2.2rem', marginBottom: '0.4rem' }}>The Alpha Cloud</h1>
       <p style={{ marginTop: 0, marginBottom: '2rem', opacity: 0.8 }}>
         Cloud Infrastructure Control Plane — open source platform for managing,
         automating and observing cloud, containers, Kubernetes and on-prem

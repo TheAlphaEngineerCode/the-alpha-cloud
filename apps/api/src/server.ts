@@ -82,7 +82,7 @@ export async function buildApp(opts: BuildAppOptions): Promise<FastifyInstance> 
     await app.register(swagger, {
       swagger: {
         info: {
-          title: 'CLOUD API',
+          title: 'The Alpha Cloud API',
           version: '0.0.0',
           description: 'Cloud Infrastructure Control Plane — API surface',
         },

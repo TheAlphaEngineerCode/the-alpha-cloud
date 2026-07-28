@@ -8,7 +8,7 @@ date: 2026-07-27
 # ADR-0010 — Human-approved destructive operations
 
 ## Context
-CLOUD can mutate real infrastructure: apply OpenTofu modules, scale or restart Kubernetes
+The Alpha Cloud can mutate real infrastructure: apply OpenTofu modules, scale or restart Kubernetes
 deployments, run automations, delete tracked resources. Automation with no human gate for
 destructive actions is the single biggest operational liability of a control plane.
 

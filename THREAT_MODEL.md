@@ -1,6 +1,6 @@
 # Threat model
 
-CLOUD is privileged software — it can mutate real infrastructure. The model
+The Alpha Cloud is privileged software — it can mutate real infrastructure. The model
 identifies the actors who interact with it, the assets worth protecting, the
 adversaries we expect, and the controls that exist (or are scheduled) for each
 threat. Items marked **`(planned)`** are not implemented in Phase 0–1.
@@ -11,8 +11,8 @@ threat. Items marked **`(planned)`** are not implemented in Phase 0–1.
 | --- | --- | --- |
 | **Authenticated user** | low-trust | Reads and writes via API + web. RBAC bounds what they can do. |
 | **Platform admin (OWNER/ADMIN)** | medium-trust | Same surface, plus organization administration. |
-| **Self-hoster operator** | full on host, low on tenant data | Deploys CLOUD, holds secrets, configures connectors. |
-| **Connector (e.g. AWS SDK)** | zero-trust | External party code that produces the data CLOUD ingests. |
+| **Self-hoster operator** | full on host, low on tenant data | Deploys The Alpha Cloud, holds secrets, configures connectors. |
+| **Connector (e.g. AWS SDK)** | zero-trust | External party code that produces the data The Alpha Cloud ingests. |
 | **Anonymous internet** | zero-trust | Public network to the API. |
 
 ## Assets

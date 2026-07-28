@@ -38,7 +38,7 @@ function parseArgs(argv: ReadonlyArray<string>): ParsedArgs {
 }
 
 const HELP = `
-CLOUD CLI v${VERSION}
+The Alpha Cloud CLI v${VERSION}
 
 Commands available at Phase 0:
   help                Show this help

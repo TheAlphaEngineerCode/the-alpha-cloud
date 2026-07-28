@@ -68,7 +68,7 @@ export default function DashboardPage() {
   return (
     <main style={{ padding: '4rem 1.5rem', maxWidth: '48rem', margin: '0 auto', lineHeight: 1.55 }}>
       <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
-        <h1 style={{ fontSize: '1.6rem', margin: 0 }}>CLOUD console</h1>
+        <h1 style={{ fontSize: '1.6rem', margin: 0 }}>The Alpha Cloud console</h1>
         <button
           onClick={onLogout}
           style={{

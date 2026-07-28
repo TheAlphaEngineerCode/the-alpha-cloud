@@ -8,7 +8,7 @@ date: 2026-07-27
 # ADR-0002 — TypeScript-first across the stack
 
 ## Context
-CLOUD touches frontend (topology graphs, dashboards, ACE editors), backend (auth, RBAC,
+The Alpha Cloud touches frontend (topology graphs, dashboards, ACE editors), backend (auth, RBAC,
 inventory, event bus), CLI, connectors and infrastructure glue. Polyglot stacks pay a tax in
 serialization contracts, duplicated domain types and slower iteration.
 

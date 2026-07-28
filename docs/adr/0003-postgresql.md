@@ -8,7 +8,7 @@ date: 2026-07-27
 # ADR-0003 — PostgreSQL as the system of record
 
 ## Context
-CLOUD stores a graph of cloud resources, audit events, deployment records, accounts/orgs/roles,
+The Alpha Cloud stores a graph of cloud resources, audit events, deployment records, accounts/orgs/roles,
 cost records, security findings and policy evaluations. Most of this is relational (rows with
 joins on `organizationId`, `resourceId`, `userId`), but the topology graph has graph shape.
 

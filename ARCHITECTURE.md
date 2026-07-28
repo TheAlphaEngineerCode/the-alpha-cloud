@@ -1,42 +1,42 @@
 # Architecture
 
-This document is the living architecture reference for CLOUD. For decision records and
+This document is the living architecture reference for The Alpha Cloud. For decision records and
 rationale, see [`docs/adr/`](./docs/adr). For the runtime roadmap, see
 [`IMPLEMENTATION_STATUS.md`](./IMPLEMENTATION_STATUS.md).
 
 ## Design at a glance
 
 ```text
-                    ┌───────────────────┐
-                    │     CLOUD Web     │
-                    │ Next.js / React   │
-                    └─────────┬─────────┘
-                              │ HTTPS + SSE
-                    ┌─────────▼─────────┐
-                    │    CLOUD API      │
-                    │ TypeScript / Fastify
-                    └─────────┬─────────┘
-                              │
-       ┌──────────────────────┼────────────────────────┐
-       │                      │                        │
-┌──────▼──────┐      ┌────────▼───────┐      ┌────────▼───────┐
-│  Inventory  │      │  Automation    │      │ Observability  │
-│  + Topology │      │  Engine        │      │ Engine         │
-└──────┬──────┘      └────────┬───────┘      └────────┬───────┘
-       │                      │                        │
-       └──────────────────────┼────────────────────────┘
-                              │ internal bus (Postgres + Redis)
-                     ┌────────▼─────────┐
-                     │  Event / Job Bus │
-                     └────────┬─────────┘
-                              │
-       ┌──────────────────────┼────────────────────────┐
-       │                      │                        │
-┌──────▼────┐         ┌────────▼───────┐      ┌────────▼───────┐
-│  Cloud    │         │  Kubernetes    │      │   IaC engine   │
-│providers  │         │  Connectors    │      │  (OpenTofu,    │
-│(aws…sim)  │         │                │      │   sandboxed)   │
-└───────────┘         └────────────────┘      └────────────────┘
+                    ┌────────────────────────┐
+                    │  The Alpha Cloud (Web)  │
+                    │  Next.js / React        │
+                    └────────────┬───────────┘
+                                 │ HTTPS + SSE
+                    ┌────────────▼───────────┐
+                    │  The Alpha Cloud (API) │
+                    │  TypeScript / Fastify  │
+                    └────────────┬───────────┘
+                                 │
+       ┌─────────────────────────┼─────────────────────────┐
+       │                         │                         │
+┌──────▼──────┐         ┌────────▼───────┐         ┌────────▼───────┐
+│  Inventory  │         │  Automation    │         │ Observability  │
+│  + Topology │         │  Engine        │         │ Engine         │
+└──────┬──────┘         └────────┬───────┘         └────────┬───────┘
+       │                         │                         │
+       └─────────────────────────┼─────────────────────────┘
+                                 │ internal bus (Postgres + Redis)
+                     ┌───────────▼────────────┐
+                     │  Event / Job Bus       │
+                     └───────────┬────────────┘
+                                 │
+       ┌─────────────────────────┼─────────────────────────┐
+       │                         │                         │
+┌──────▼────┐            ┌────────▼───────┐       ┌──────────▼─────────┐
+│  Cloud    │            │  Kubernetes    │       │   IaC engine      │
+│  providers│            │  Connectors     │       │  (OpenTofu,      │
+│ (aws…sim) │            │                 │       │   sandboxed)      │
+└───────────┘            └────────────────┘       └───────────────────┘
 ```
 
 | Layer | Role | Lives in |

@@ -8,7 +8,7 @@ date: 2026-07-27
 # ADR-0001 — Modular monolith before microservices
 
 ## Context
-CLOUD spans many bounded contexts: inventory, topology, deployment, observability, FinOps,
+The Alpha Cloud spans many bounded contexts: inventory, topology, deployment, observability, FinOps,
 security, IaC, automation, Kubernetes, drift. Splitting these into separate deployables on day
 one is a known anti-pattern: it pays the network and operational cost of microservices before
 their boundaries are proven.

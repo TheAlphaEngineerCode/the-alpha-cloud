@@ -81,7 +81,7 @@ export default function LoginPage() {
         lineHeight: 1.55,
       }}
     >
-      <h1 style={{ fontSize: '1.8rem', marginBottom: '0.4rem' }}>CLOUD</h1>
+      <h1 style={{ fontSize: '1.8rem', marginBottom: '0.4rem' }}>The Alpha Cloud</h1>
       <p style={{ marginTop: 0, marginBottom: '2rem', opacity: 0.7 }}>
         {state.mode === 'login'
           ? 'Sign in to your operator console'

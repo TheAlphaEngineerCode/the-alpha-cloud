@@ -24,7 +24,7 @@ async function main() {
     });
   }
 
-  log.info({ subscriptions: ALL_EVENT_TYPES.length }, 'CLOUD worker ready (no-op handlers)');
+  log.info({ subscriptions: ALL_EVENT_TYPES.length }, 'The Alpha Cloud worker ready (no-op handlers)');
 
   const shutdown = (signal: string) => {
     log.info({ signal, processed }, 'worker stopping');

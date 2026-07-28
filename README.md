@@ -1,15 +1,15 @@
-# 🛰️ CLOUD — Cloud Infrastructure Control Plane
+# 🛰️ The Alpha Cloud — Cloud Infrastructure Control Plane
 
-> Open source control plane for managing, automating and observing cloud, containers,
-> Kubernetes and on-prem infrastructure in a single operational layer.
+> > The Alpha Cloud — open source control plane for managing, automating and observing
+> cloud, containers, Kubernetes and on-prem infrastructure in a single operational layer.
 
-**CLOUD** answers one operational question:
+**The Alpha Cloud** answers one operational question:
 
 > *What is running, where is it running, how much does it cost, what depends on it,
 > what state is it in, what risks does it carry, and what happens if something
 > changes or fails?*
 
-It is **not** another dashboard. CLOUD is a control plane: it discovers
+It is **not** another dashboard. The Alpha Cloud is a control plane: it discovers
 infrastructure, builds a topology graph that powers blast-radius analysis,
 provisions environments, executes deployments, observes workloads, controls
 costs, detects risks, applies policies, automates operations — and audits every
@@ -59,8 +59,8 @@ that produced it.
 ## 🚀 Quick start
 
 ```bash
-git clone https://github.com/TheAlphaEngineerCode/cloud
-cd cloud
+git clone https://github.com/TheAlphaEngineerCode/the-alpha-cloud
+cd the-alpha-cloud
 cp .env.example .env
 make setup         # pnpm install
 make docker-up     # Postgres 17 + Redis 7 + MinIO + OTel collector

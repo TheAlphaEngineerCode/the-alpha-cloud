@@ -1,4 +1,4 @@
-# Contributing to CLOUD
+# Contributing to The Alpha Cloud
 
 Thanks for being here. The short version:
 

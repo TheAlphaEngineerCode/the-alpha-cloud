@@ -8,7 +8,7 @@ date: 2026-07-27
 # ADR-0009 — Multi-tenant by row scoping, with Postgres RLS as upgrade
 
 ## Context
-CLOUD is multi-tenant: every organization must only see its own data. Spec §41 declares that
+The Alpha Cloud is multi-tenant: every organization must only see its own data. Spec §41 declares that
 no query can return data from another tenant. Trusting every call site in every module to do
 this by hand is brittle.
 

@@ -7,9 +7,9 @@ import type { ReactNode } from 'react';
  * static title; Phase 2+ adds the command palette and global navigation.
  */
 export const metadata = {
-  title: 'CLOUD — Cloud Infrastructure Control Plane',
+  title: 'The Alpha Cloud — Cloud Infrastructure Control Plane',
   description:
-    'Open source control plane for managing, automating and observing cloud, containers, Kubernetes and on-prem infrastructure in a single operational layer.',
+    'The Alpha Cloud — open source control plane for managing, automating and observing cloud, containers, Kubernetes and on-prem infrastructure in a single operational layer.',
 };
 
 const fontStack =

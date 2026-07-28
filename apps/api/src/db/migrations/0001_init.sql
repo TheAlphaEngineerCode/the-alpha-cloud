@@ -1,4 +1,4 @@
--- CLOUD — initial schema (Phase 0 + Phase 1 additions)
+-- The Alpha Cloud — initial schema (Phase 0 + Phase 1 additions)
 --
 -- Conventions:
 --   * All tenant-scoped tables carry `organization_id UUID NOT NULL` with a FK to
