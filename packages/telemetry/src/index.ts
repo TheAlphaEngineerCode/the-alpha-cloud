@@ -14,8 +14,12 @@ export interface SpanContext {
 export class NoopSpan {
   readonly traceId = '00000000000000000000000000000000';
   readonly spanId = '0000000000000000';
-  setAttribute(_k: string, _v: unknown): this { return this; }
-  recordError(_err: Error): this { return this; }
+  setAttribute(_k: string, _v: unknown): this {
+    return this;
+  }
+  recordError(_err: Error): this {
+    return this;
+  }
   end(): void {}
 }
 

@@ -1,9 +1,4 @@
-import type {
-  EventId,
-  OrganizationId,
-  UserId,
-  AuditEventId,
-} from './ids.js';
+import type { EventId, OrganizationId, UserId, AuditEventId } from './ids.js';
 
 /**
  * Event envelope (spec §42). One shape for every domain event. The payload is wide;

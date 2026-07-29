@@ -107,26 +107,16 @@ const ROLES: Readonly<Record<Role, PermSet>> = {
     'audit.read',
   ]),
 
-  DEVELOPER: new Set<Permission>([
-    'resource.read',
-    'deployment.create',
-    'cost.read',
-  ]),
+  DEVELOPER: new Set<Permission>(['resource.read', 'deployment.create', 'cost.read']),
 
-  VIEWER: new Set<Permission>([
-    'resource.read',
-    'cost.read',
-  ]),
+  VIEWER: new Set<Permission>(['resource.read', 'cost.read']),
 };
 
 /**
  * Main API. Returns true if `role` grants `permission`. Never throws — an unknown role
  * or permission yields false (fail-closed).
  */
-export function can(
-  role: Role | null | undefined,
-  permission: Permission,
-): boolean {
+export function can(role: Role | null | undefined, permission: Permission): boolean {
   if (!role) return false;
   const set = ROLES[role];
   return set ? set.has(permission) : false;
@@ -138,18 +128,12 @@ export function permissionsFor(role: Role): ReadonlySet<Permission> {
 }
 
 /** Returns true iff at least one of `permissions` is granted. */
-export function canAny(
-  role: Role | null | undefined,
-  permissions: readonly Permission[],
-): boolean {
+export function canAny(role: Role | null | undefined, permissions: readonly Permission[]): boolean {
   return permissions.some((p) => can(role, p));
 }
 
 /** Returns true iff all `permissions` are granted. */
-export function canAll(
-  role: Role | null | undefined,
-  permissions: readonly Permission[],
-): boolean {
+export function canAll(role: Role | null | undefined, permissions: readonly Permission[]): boolean {
   return permissions.every((p) => can(role, p));
 }
 

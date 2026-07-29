@@ -142,7 +142,11 @@ export default function LoginPage() {
             opacity: state.submitting ? 0.6 : 1,
           }}
         >
-          {state.submitting ? 'Submitting…' : state.mode === 'login' ? 'Sign in' : 'Create organization'}
+          {state.submitting
+            ? 'Submitting…'
+            : state.mode === 'login'
+              ? 'Sign in'
+              : 'Create organization'}
         </button>
         <button
           type="button"
@@ -201,9 +205,7 @@ function Field({ label, value, onChange, type = 'text', autoComplete, hint }: Fi
           fontSize: '0.95rem',
         }}
       />
-      {hint && (
-        <span style={{ fontSize: '0.78rem', opacity: 0.65 }}>{hint}</span>
-      )}
+      {hint && <span style={{ fontSize: '0.78rem', opacity: 0.65 }}>{hint}</span>}
     </label>
   );
 }

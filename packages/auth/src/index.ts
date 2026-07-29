@@ -46,10 +46,7 @@ export async function hashPassword(plaintext: string): Promise<string> {
  * Verify a plaintext attempt against a stored argon2 hash. Returns false (never throws) on
  * mismatch or malformed hash — this is the constant-result contract that callers expect.
  */
-export async function verifyPassword(
-  storedHash: string,
-  attempt: string,
-): Promise<boolean> {
+export async function verifyPassword(storedHash: string, attempt: string): Promise<boolean> {
   if (!storedHash || !attempt) return false;
   try {
     return await verify(storedHash, attempt);

@@ -41,10 +41,11 @@ export async function seedDemo(pool: TypedPool): Promise<SeedResult> {
   }
 
   await pool.transaction(async (tx) => {
-    await tx.execute(
-      `INSERT INTO organizations (id, name, slug) VALUES ($1, $2, $3)`,
-      [orgId, SEED_ORG_NAME, SEED_ORG_SLUG],
-    );
+    await tx.execute(`INSERT INTO organizations (id, name, slug) VALUES ($1, $2, $3)`, [
+      orgId,
+      SEED_ORG_NAME,
+      SEED_ORG_SLUG,
+    ]);
     await tx.execute(
       `INSERT INTO users (id, email, password_hash, display_name, status)
        VALUES ($1, $2, $3, $4, 'ACTIVE')`,
@@ -85,8 +86,7 @@ async function main() {
   }
 }
 
-const invokedDirectly =
-  process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
+const invokedDirectly = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('seed failed:', err);

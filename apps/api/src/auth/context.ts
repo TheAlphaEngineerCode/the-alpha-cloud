@@ -2,13 +2,7 @@
  * Fastify application surface — the only thing handlers should need that's pre-bound on
  * `request`/`server`.
  */
-import type {
-  OrganizationId,
-  Role,
-  Session,
-  User,
-  UserId,
-} from '@cloud/domain';
+import type { OrganizationId, Role, Session, User, UserId } from '@cloud/domain';
 import type { EventBus } from '@cloud/events';
 import type { Repositories } from '../db/repositories.js';
 

@@ -4,8 +4,12 @@ import type { Repositories } from '../../src/db/repositories.js';
 
 let sut: TestApp;
 
-beforeEach(async () => { sut = await buildTestApp(); });
-afterEach(async () => { await sut.close(); });
+beforeEach(async () => {
+  sut = await buildTestApp();
+});
+afterEach(async () => {
+  await sut.close();
+});
 
 async function createOrg(
   repos: Repositories,
@@ -83,7 +87,12 @@ describe('RBAC enforcement', () => {
       ip: null,
       correlationId: 'seed',
     });
-    const cookie = await issueSessionFor(sut.repos, user, sut.repos._organizations.all()[0]!, 'ADMIN');
+    const cookie = await issueSessionFor(
+      sut.repos,
+      user,
+      sut.repos._organizations.all()[0]!,
+      'ADMIN',
+    );
     const res = await sut.app.inject({
       method: 'GET',
       url: '/audit',

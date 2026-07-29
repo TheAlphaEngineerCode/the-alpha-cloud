@@ -18,27 +18,23 @@ export interface AuditRoutesDeps {
 export function auditRoutes(opts: AuditRoutesDeps): (app: FastifyInstance) => void {
   const { repos } = opts;
   return (app) => {
-    app.get(
-      '/audit',
-      { preHandler: [requirePermission('audit.read')] },
-      async (request, reply) => {
-        const limit = parseLimit(request.query);
-        const orgId = request.cloud.tenant!.organizationId;
-        const rows = await repos.audit.listForOrganization(orgId, limit);
-        return reply.code(200).send({
-          audit: rows.map((r) => ({
-            id: r.id,
-            action: r.action,
-            resourceType: r.resourceType,
-            resourceId: r.resourceId,
-            actorId: r.actorId,
-            timestamp: r.timestamp.toISOString(),
-            ip: r.ip,
-            correlationId: r.correlationId,
-          })),
-        });
-      },
-    );
+    app.get('/audit', { preHandler: [requirePermission('audit.read')] }, async (request, reply) => {
+      const limit = parseLimit(request.query);
+      const orgId = request.cloud.tenant!.organizationId;
+      const rows = await repos.audit.listForOrganization(orgId, limit);
+      return reply.code(200).send({
+        audit: rows.map((r) => ({
+          id: r.id,
+          action: r.action,
+          resourceType: r.resourceType,
+          resourceId: r.resourceId,
+          actorId: r.actorId,
+          timestamp: r.timestamp.toISOString(),
+          ip: r.ip,
+          correlationId: r.correlationId,
+        })),
+      });
+    });
   };
 }
 

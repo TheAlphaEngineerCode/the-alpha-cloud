@@ -15,11 +15,7 @@ export const emailSchema = z
   .regex(/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/i, 'invalid email');
 
 /** Display name — non-empty, printable, length 1..100. */
-export const displayNameSchema = z
-  .string()
-  .trim()
-  .min(1, 'required')
-  .max(100, 'too long');
+export const displayNameSchema = z.string().trim().min(1, 'required').max(100, 'too long');
 
 /** Password rules. Stored as argon2 hash, never plaintext — see @cloud/auth. */
 export const passwordSchema = z
@@ -31,9 +27,7 @@ export const passwordSchema = z
   .refine((s) => /[A-Z]/.test(s), 'password must contain an uppercase letter');
 
 /** RFC 4122 UUID v4. */
-export const uuidSchema = z
-  .string()
-  .uuid('must be a valid UUID');
+export const uuidSchema = z.string().uuid('must be a valid UUID');
 
 /** Slug — for organization handles, project keys. */
 export const slugSchema = z

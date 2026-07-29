@@ -15,13 +15,8 @@ export type Subscriber<T extends EventType = EventType> = (
 ) => void | Promise<void>;
 
 export interface EventBus {
-  publish<T extends EventType, P>(
-    event: EventEnvelope<T, P>,
-  ): Promise<void>;
-  subscribe<T extends EventType>(
-    type: T,
-    sub: Subscriber<T>,
-  ): () => void;
+  publish<T extends EventType, P>(event: EventEnvelope<T, P>): Promise<void>;
+  subscribe<T extends EventType>(type: T, sub: Subscriber<T>): () => void;
   close(): void;
 }
 
@@ -29,9 +24,7 @@ export class InMemoryEventBus implements EventBus {
   private readonly subscribers: Map<EventType, Set<Subscriber>> = new Map();
   private closed = false;
 
-  async publish<T extends EventType, P>(
-    event: EventEnvelope<T, P>,
-  ): Promise<void> {
+  async publish<T extends EventType, P>(event: EventEnvelope<T, P>): Promise<void> {
     if (this.closed) throw new Error('EventBus is closed');
     const subs = this.subscribers.get(event.type);
     if (!subs || subs.size === 0) return;

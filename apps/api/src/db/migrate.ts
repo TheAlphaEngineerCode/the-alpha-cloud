@@ -23,9 +23,7 @@ export async function applyMigrations(pool: TypedPool): Promise<string[]> {
     [],
   );
 
-  const files = (await readdir(MIGRATIONS_DIR))
-    .filter((f) => f.endsWith('.sql'))
-    .sort();
+  const files = (await readdir(MIGRATIONS_DIR)).filter((f) => f.endsWith('.sql')).sort();
 
   const applied = new Set(
     (
@@ -45,10 +43,7 @@ export async function applyMigrations(pool: TypedPool): Promise<string[]> {
     const sql = await readFile(join(MIGRATIONS_DIR, file), 'utf8');
     await pool.transaction(async (tx) => {
       await tx.execute(sql, []);
-      await tx.execute(
-        'INSERT INTO schema_migrations (version) VALUES ($1)',
-        [version],
-      );
+      await tx.execute('INSERT INTO schema_migrations (version) VALUES ($1)', [version]);
     });
     newlyApplied.push(version);
   }
@@ -66,17 +61,14 @@ async function main() {
     const applied = await applyMigrations(pool);
     // eslint-disable-next-line no-console
     console.log(
-      applied.length === 0
-        ? '[cloud] no new migrations'
-        : `[cloud] applied: ${applied.join(', ')}`,
+      applied.length === 0 ? '[cloud] no new migrations' : `[cloud] applied: ${applied.join(', ')}`,
     );
   } finally {
     await pool.close();
   }
 }
 
-const invokedDirectly =
-  process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
+const invokedDirectly = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
 if (invokedDirectly) {
   main().catch((err) => {
     console.error('migration failed:', err);

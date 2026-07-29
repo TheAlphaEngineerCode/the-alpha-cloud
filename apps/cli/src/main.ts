@@ -66,14 +66,20 @@ function main(): void {
       console.log(VERSION);
       break;
     case 'doctor':
-      console.log(JSON.stringify({
-        node: process.versions.node,
-        platform: process.platform,
-        arch: process.arch,
-        uptimeSeconds: process.uptime(),
-        envNodeEnv: process.env.NODE_ENV ?? '(unset)',
-        handledEventTypes: ALL_EVENT_TYPES.length,
-      }, null, 2));
+      console.log(
+        JSON.stringify(
+          {
+            node: process.versions.node,
+            platform: process.platform,
+            arch: process.arch,
+            uptimeSeconds: process.uptime(),
+            envNodeEnv: process.env.NODE_ENV ?? '(unset)',
+            handledEventTypes: ALL_EVENT_TYPES.length,
+          },
+          null,
+          2,
+        ),
+      );
       break;
     case 'status':
       console.error('[cloud] status: not implemented in Phase 0 — see IMPLEMENTATION_STATUS.md');

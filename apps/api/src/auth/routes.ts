@@ -18,12 +18,7 @@ import {
   slugSchema,
   randomId,
 } from '@cloud/validation';
-import {
-  BadRequest,
-  Conflict,
-  Unauthorized,
-  type AppDeps,
-} from './context.js';
+import { BadRequest, Conflict, Unauthorized, type AppDeps } from './context.js';
 import { hashPassword, verifyPassword } from '@cloud/auth';
 import { issueSession, setSessionCookie, clearSessionCookie } from './sessions.js';
 import type { Repositories } from '../db/repositories.js';
@@ -38,7 +33,13 @@ const registerBody = (body: unknown) => {
   const displayName = displayNameSchema.safeParse(b.displayName);
   const orgName = displayNameSchema.safeParse(b.orgName ?? b['org_name']);
   const slug = slugSchema.safeParse(b.orgSlug ?? b['org_slug']);
-  if (!email.success || !password.success || !displayName.success || !orgName.success || !slug.success) {
+  if (
+    !email.success ||
+    !password.success ||
+    !displayName.success ||
+    !orgName.success ||
+    !slug.success
+  ) {
     return null;
   }
   return {

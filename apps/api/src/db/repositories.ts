@@ -43,10 +43,7 @@ export interface OrganizationRepository {
 }
 
 export interface MembershipRepository {
-  find(
-    organizationId: OrganizationId,
-    userId: UserId,
-  ): Promise<Membership | null>;
+  find(organizationId: OrganizationId, userId: UserId): Promise<Membership | null>;
   insert(input: {
     organizationId: OrganizationId;
     userId: UserId;

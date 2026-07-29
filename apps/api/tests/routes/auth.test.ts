@@ -3,8 +3,12 @@ import { buildTestApp, register, login, type TestApp } from '../helpers/app.js';
 
 let sut: TestApp;
 
-beforeEach(async () => { sut = await buildTestApp(); });
-afterEach(async () => { await sut.close(); });
+beforeEach(async () => {
+  sut = await buildTestApp();
+});
+afterEach(async () => {
+  await sut.close();
+});
 
 const demoCredentials = {
   email: 'operator@cloud.test',

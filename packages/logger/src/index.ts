@@ -5,11 +5,7 @@
  * child loggers with `log.child({ module: 'inventory' })` rather than instantiating
  * their own.
  */
-import pino, {
-  type DestinationStream,
-  type Logger,
-  type LoggerOptions,
-} from 'pino';
+import pino, { type DestinationStream, type Logger, type LoggerOptions } from 'pino';
 
 export type { Logger } from 'pino';
 

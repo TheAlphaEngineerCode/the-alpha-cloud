@@ -34,7 +34,15 @@ import type {
 } from '../../src/db/repositories.js';
 
 const ROLES: readonly Role[] = [
-  'OWNER', 'ADMIN', 'PLATFORM_ENGINEER', 'DEVOPS', 'SRE', 'SECURITY', 'FINOPS', 'DEVELOPER', 'VIEWER',
+  'OWNER',
+  'ADMIN',
+  'PLATFORM_ENGINEER',
+  'DEVOPS',
+  'SRE',
+  'SECURITY',
+  'FINOPS',
+  'DEVELOPER',
+  'VIEWER',
 ] as const;
 
 function assertRole(v: unknown): Role {
@@ -98,7 +106,11 @@ class MemoryOrganizationRepository implements OrganizationRepository {
     const id = orgId(randomUUID());
     const now = new Date();
     const org: Organization = {
-      id, name: input.name, slug: input.slug, createdAt: now, updatedAt: now,
+      id,
+      name: input.name,
+      slug: input.slug,
+      createdAt: now,
+      updatedAt: now,
     };
     this.orgs.set(id, org);
     this.bySlug.set(input.slug, id);
@@ -132,8 +144,12 @@ class MemoryMembershipRepository implements MembershipRepository {
     const id = randomUUID();
     const now = new Date();
     const m: Membership = {
-      id, organizationId: input.organizationId, userId: input.userId, role: input.role,
-      createdAt: now, updatedAt: now,
+      id,
+      organizationId: input.organizationId,
+      userId: input.userId,
+      role: input.role,
+      createdAt: now,
+      updatedAt: now,
     };
     this.memberships.set(id, m);
     return m;
@@ -227,7 +243,10 @@ class MemoryAuditRepository implements AuditRepository {
     this.events.push(ev);
     return ev;
   }
-  async listForOrganization(organizationId: OrganizationId, limit: number): Promise<readonly AuditEvent[]> {
+  async listForOrganization(
+    organizationId: OrganizationId,
+    limit: number,
+  ): Promise<readonly AuditEvent[]> {
     return this.events
       .filter((e) => e.organizationId === organizationId)
       .slice(-Math.max(1, Math.min(limit, 200)))
@@ -241,7 +260,10 @@ class MemoryEventRepository implements EventRepository {
   async insert<T extends EventType, P>(event: EventEnvelope<T, P>): Promise<void> {
     this.events.push(event as unknown as EventEnvelope);
   }
-  async listForOrganization(organizationId: OrganizationId, limit: number): Promise<readonly EventEnvelope[]> {
+  async listForOrganization(
+    organizationId: OrganizationId,
+    limit: number,
+  ): Promise<readonly EventEnvelope[]> {
     return this.events
       .filter((e) => e.organizationId === organizationId)
       .slice(-Math.max(1, Math.min(limit, 200)))
@@ -269,8 +291,12 @@ export function buildMemoryRepositories(): MemoryRepositories {
     sessions: new MemorySessionRepository(),
     audit: new MemoryAuditRepository(),
     events: new MemoryEventRepository(),
-    get _memberships() { return memberships; },
-    get _organizations() { return orgs; },
+    get _memberships() {
+      return memberships;
+    },
+    get _organizations() {
+      return orgs;
+    },
     reset() {
       // simplest behaviour — same shape, all cleared at next test
     },
@@ -279,4 +305,5 @@ export function buildMemoryRepositories(): MemoryRepositories {
 }
 
 // satisfy TS that the branded-id generators compile cleanly
-void auditEventId; void eventId;
+void auditEventId;
+void eventId;
