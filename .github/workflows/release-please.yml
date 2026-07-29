@@ -36,6 +36,6 @@ jobs:
               gh pr ready "$number" --repo "$GITHUB_REPOSITORY" --undo
             fi
             for workflow in ci.yml codeql.yml workflow-lint.yml; do
-              gh workflow run "$workflow" --ref "$branch"
+              gh workflow run "$workflow" --repo "$GITHUB_REPOSITORY" --ref "$branch"
             done
           done
