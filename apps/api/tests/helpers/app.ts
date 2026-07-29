@@ -64,7 +64,12 @@ export function parseSetCookies(setCookie: string | string[] | undefined): Recor
 export async function register(
   app: import('fastify').FastifyInstance,
   body: { email: string; password: string; displayName: string; orgName: string; orgSlug: string },
-): Promise<{ cookie: string; user: { id: string }; organization: { id: string }; sessionId: string }> {
+): Promise<{
+  cookie: string;
+  user: { id: string };
+  organization: { id: string };
+  sessionId: string;
+}> {
   const res = await app.inject({
     method: 'POST',
     url: '/auth/register',
@@ -72,7 +77,11 @@ export async function register(
   });
   if (res.statusCode !== 201) throw new Error(`register failed: ${res.statusCode} ${res.body}`);
   const cookies = parseSetCookies(res.headers['set-cookie']);
-  const json = JSON.parse(res.body) as { user: { id: string }; organization: { id: string }; sessionId: string };
+  const json = JSON.parse(res.body) as {
+    user: { id: string };
+    organization: { id: string };
+    sessionId: string;
+  };
   return {
     cookie: `cloud_session=${cookies['cloud_session'] ?? ''}`,
     user: json.user,

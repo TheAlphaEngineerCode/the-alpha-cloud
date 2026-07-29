@@ -6,11 +6,15 @@
  */
 import type { TypedPool } from '@cloud/database';
 import { asString, asOptionalString, asDate, asOptionalDate, asNumber } from '@cloud/database';
-import type { AuditEventId, EventEnvelope, EventType, OrganizationId, Role, UserId } from '@cloud/domain';
-import {
-  organizationId as orgId,
-  userId as uid,
+import type {
+  AuditEventId,
+  EventEnvelope,
+  EventType,
+  OrganizationId,
+  Role,
+  UserId,
 } from '@cloud/domain';
+import { organizationId as orgId, userId as uid } from '@cloud/domain';
 import type {
   AuditRepository,
   EventRepository,
@@ -23,7 +27,15 @@ import type {
 import type { User, Organization, Membership, Session, AuditEvent } from '@cloud/domain';
 
 const ROLES: readonly Role[] = [
-  'OWNER', 'ADMIN', 'PLATFORM_ENGINEER', 'DEVOPS', 'SRE', 'SECURITY', 'FINOPS', 'DEVELOPER', 'VIEWER',
+  'OWNER',
+  'ADMIN',
+  'PLATFORM_ENGINEER',
+  'DEVOPS',
+  'SRE',
+  'SECURITY',
+  'FINOPS',
+  'DEVELOPER',
+  'VIEWER',
 ] as const;
 
 function assertRole(value: unknown): Role {
@@ -130,11 +142,7 @@ class PgUserRepository implements UserRepository {
 class PgOrganizationRepository implements OrganizationRepository {
   constructor(private readonly pool: TypedPool) {}
   async findBySlug(slug: string): Promise<Organization | null> {
-    return this.pool.queryOne(
-      'SELECT * FROM organizations WHERE slug = $1',
-      [slug],
-      parseOrg,
-    );
+    return this.pool.queryOne('SELECT * FROM organizations WHERE slug = $1', [slug], parseOrg);
   }
   async findById(id: OrganizationId): Promise<Organization | null> {
     return this.pool.queryOne('SELECT * FROM organizations WHERE id = $1', [id], parseOrg);
@@ -234,10 +242,7 @@ class PgSessionRepository implements SessionRepository {
     );
   }
   async revoke(id: string): Promise<void> {
-    await this.pool.execute(
-      'UPDATE sessions SET revoked_at = now() WHERE id = $1',
-      [id],
-    );
+    await this.pool.execute('UPDATE sessions SET revoked_at = now() WHERE id = $1', [id]);
   }
   async revokeAllForUser(userId: UserId): Promise<number> {
     const res = await this.pool.execute(
@@ -281,7 +286,10 @@ class PgAuditRepository implements AuditRepository {
     if (!ev) throw new Error('audit insert returned no rows');
     return ev;
   }
-  async listForOrganization(organizationId: OrganizationId, limit: number): Promise<readonly AuditEvent[]> {
+  async listForOrganization(
+    organizationId: OrganizationId,
+    limit: number,
+  ): Promise<readonly AuditEvent[]> {
     return this.pool.query(
       'SELECT * FROM audit_events WHERE organization_id = $1 ORDER BY timestamp DESC LIMIT $2',
       [organizationId, Math.min(limit, 200)],
@@ -311,7 +319,10 @@ class PgEventRepository implements EventRepository {
       ],
     );
   }
-  async listForOrganization(organizationId: OrganizationId, limit: number): Promise<readonly EventEnvelope[]> {
+  async listForOrganization(
+    organizationId: OrganizationId,
+    limit: number,
+  ): Promise<readonly EventEnvelope[]> {
     return this.pool.query(
       `SELECT * FROM events WHERE organization_id = $1 ORDER BY occurred_at DESC LIMIT $2`,
       [organizationId, Math.min(limit, 200)],

@@ -9,10 +9,7 @@
  */
 import { randomUUID } from 'node:crypto';
 import type { FastifyReply, FastifyRequest } from 'fastify';
-import {
-  generateSessionToken,
-  hashToken,
-} from '@cloud/auth';
+import { generateSessionToken, hashToken } from '@cloud/auth';
 import type { OrganizationId, Role, Session, UserId } from '@cloud/domain';
 import type { SessionRepository } from '../db/repositories.js';
 import type { AppDeps } from './context.js';
@@ -47,7 +44,14 @@ export async function issueSession(opts: {
 
 export function setSessionCookie(
   reply: FastifyReply,
-  deps: Pick<AppDeps, 'sessionCookieName' | 'sessionTtlSeconds' | 'sessionCookieSecure' | 'sessionCookieSameSite' | 'sessionCookieDomain'>,
+  deps: Pick<
+    AppDeps,
+    | 'sessionCookieName'
+    | 'sessionTtlSeconds'
+    | 'sessionCookieSecure'
+    | 'sessionCookieSameSite'
+    | 'sessionCookieDomain'
+  >,
   token: string,
 ): void {
   void reply.setCookie(deps.sessionCookieName, token, {
@@ -84,7 +88,6 @@ export interface CorrelationContext {
 export function correlationFromRequest(request: FastifyRequest): CorrelationContext {
   const header = request.headers['x-correlation-id'] ?? request.headers['x-request-id'];
   const id = typeof header === 'string' && header.length > 0 ? header : randomUUID();
-  const ip =
-    (request.ip === '::1' || request.ip === 'unknown') ? null : request.ip;
+  const ip = request.ip === '::1' || request.ip === 'unknown' ? null : request.ip;
   return { correlationId: id, ip };
 }

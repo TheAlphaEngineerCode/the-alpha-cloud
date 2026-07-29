@@ -12,9 +12,7 @@ import { z } from 'zod';
  */
 export const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
-  LOG_LEVEL: z
-    .enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal'])
-    .default('info'),
+  LOG_LEVEL: z.enum(['trace', 'debug', 'info', 'warn', 'error', 'fatal']).default('info'),
 
   API_HOST: z.string().default('0.0.0.0'),
   API_PORT: z.coerce.number().int().positive().default(8080),
@@ -24,9 +22,12 @@ export const envSchema = z.object({
   SESSION_TTL_SECONDS: z.coerce.number().int().positive().default(2592000),
   SESSION_SECRET: z.string().min(32),
 
-  CORS_ORIGINS: z
-    .string()
-    .transform((s) => s.split(',').map((o) => o.trim()).filter(Boolean)),
+  CORS_ORIGINS: z.string().transform((s) =>
+    s
+      .split(',')
+      .map((o) => o.trim())
+      .filter(Boolean),
+  ),
 
   WEB_PORT: z.coerce.number().int().positive().default(3000),
   WEB_PUBLIC_URL: z.string().url(),

@@ -120,10 +120,7 @@ export interface TypedPool {
     params: ReadonlyArray<unknown>,
     decoder: RowDecoder<T>,
   ): Promise<T | null>;
-  execute(
-    text: string,
-    params: ReadonlyArray<unknown>,
-  ): Promise<QueryResult>;
+  execute(text: string, params: ReadonlyArray<unknown>): Promise<QueryResult>;
   transaction<T>(fn: (tx: TypedTx) => Promise<T>): Promise<T>;
   pool: Pool;
   close(): Promise<void>;

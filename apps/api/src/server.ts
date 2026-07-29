@@ -14,12 +14,7 @@ import type { AppDeps } from './auth/context.js';
 import type { Repositories } from './db/repositories.js';
 import type { EventBus } from '@cloud/events';
 
-import {
-  BadRequest,
-  Conflict,
-  Forbidden,
-  Unauthorized,
-} from './auth/context.js';
+import { BadRequest, Conflict, Forbidden, Unauthorized } from './auth/context.js';
 
 import { buildTenantMiddleware } from './auth/tenant_middleware.js';
 import { auditOnSend, auditPreHandler } from './auth/audit.js';
@@ -118,11 +113,15 @@ export async function buildApp(opts: BuildAppOptions): Promise<FastifyInstance> 
   app.setErrorHandler((err: FastifyError, request, reply) => {
     const status =
       err.statusCode ??
-      (err instanceof Unauthorized ? 401
-       : err instanceof Forbidden ? 403
-       : err instanceof BadRequest ? 400
-       : err instanceof Conflict ? 409
-       : 500);
+      (err instanceof Unauthorized
+        ? 401
+        : err instanceof Forbidden
+          ? 403
+          : err instanceof BadRequest
+            ? 400
+            : err instanceof Conflict
+              ? 409
+              : 500);
     if (status >= 500) {
       request.log?.error?.(err, 'server error');
     }
@@ -148,10 +147,7 @@ export async function buildApp(opts: BuildAppOptions): Promise<FastifyInstance> 
   });
   app.get('/ready', async (_req, reply) => {
     try {
-      await repos.audit.listForOrganization(
-        '00000000-0000-0000-0000-000000000000' as never,
-        1,
-      );
+      await repos.audit.listForOrganization('00000000-0000-0000-0000-000000000000' as never, 1);
       await reply.code(200).send({ status: 'ready' });
     } catch (err) {
       await reply.code(503).send({

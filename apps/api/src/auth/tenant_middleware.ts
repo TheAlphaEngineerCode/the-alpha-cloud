@@ -34,15 +34,9 @@ const UNAUTHENTICATED: RequestContext = {
   tenant: null,
 };
 
-export type TenantMiddleware = (
-  request: FastifyRequest,
-  reply: FastifyReply,
-) => Promise<void>;
+export type TenantMiddleware = (request: FastifyRequest, reply: FastifyReply) => Promise<void>;
 
-export function buildTenantMiddleware(
-  deps: AppDeps,
-  repos: Repositories,
-): TenantMiddleware {
+export function buildTenantMiddleware(deps: AppDeps, repos: Repositories): TenantMiddleware {
   return async (request: FastifyRequest, _reply: FastifyReply) => {
     request.cloud = UNAUTHENTICATED;
 

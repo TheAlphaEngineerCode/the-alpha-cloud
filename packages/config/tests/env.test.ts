@@ -23,10 +23,7 @@ describe('env schema', () => {
     const env = buildEnv(valid);
     expect(env.NODE_ENV).toBe('development');
     expect(env.RATE_LIMIT_AUTH_MAX).toBe(10);
-    expect(env.CORS_ORIGINS).toEqual([
-      'http://localhost:3000',
-      'http://localhost:3001',
-    ]);
+    expect(env.CORS_ORIGINS).toEqual(['http://localhost:3000', 'http://localhost:3001']);
   });
 
   it('coerces numbers and rejects invalid ports', () => {

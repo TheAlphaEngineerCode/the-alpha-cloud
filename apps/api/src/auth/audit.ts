@@ -91,10 +91,7 @@ export function auditOnSend(
       });
     } catch (err) {
       // Audit failure must never block the actual response.
-      console.error(
-        '[cloud] audit write failed:',
-        err instanceof Error ? err.message : err,
-      );
+      console.error('[cloud] audit write failed:', err instanceof Error ? err.message : err);
     }
     return payload;
   };

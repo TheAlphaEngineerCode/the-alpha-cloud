@@ -67,7 +67,14 @@ export default function DashboardPage() {
 
   return (
     <main style={{ padding: '4rem 1.5rem', maxWidth: '48rem', margin: '0 auto', lineHeight: 1.55 }}>
-      <header style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem' }}>
+      <header
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '2rem',
+        }}
+      >
         <h1 style={{ fontSize: '1.6rem', margin: 0 }}>The Alpha Cloud console</h1>
         <button
           onClick={onLogout}
@@ -96,7 +103,16 @@ export default function DashboardPage() {
         {me.organizations.length === 0 ? (
           <p style={{ opacity: 0.7 }}>No organizations yet.</p>
         ) : (
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '0.6rem' }}>
+          <ul
+            style={{
+              listStyle: 'none',
+              padding: 0,
+              margin: 0,
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '0.6rem',
+            }}
+          >
             {me.organizations.map((o) => (
               <li
                 key={o.id}
@@ -119,8 +135,8 @@ export default function DashboardPage() {
       <section style={{ marginTop: '2rem', opacity: 0.6, fontSize: '0.9rem' }}>
         <p>Phase 0–1: auth, organizations, RBAC, multi-tenant isolation, audit.</p>
         <p>
-          Topology, applications, deployments, Kubernetes, observability, FinOps,
-          security, IaC and automation land in Phases 2–12.
+          Topology, applications, deployments, Kubernetes, observability, FinOps, security, IaC and
+          automation land in Phases 2–12.
         </p>
       </section>
     </main>

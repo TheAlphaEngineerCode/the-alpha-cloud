@@ -2,13 +2,7 @@ import type { OrganizationId, ProviderId, ResourceId } from './ids.js';
 
 /** Provider kinds known to the platform. New connectors add kinds here. */
 export type ProviderKind =
-  | 'aws'
-  | 'azure'
-  | 'gcp'
-  | 'kubernetes'
-  | 'docker'
-  | 'local'
-  | 'simulator';
+  'aws' | 'azure' | 'gcp' | 'kubernetes' | 'docker' | 'local' | 'simulator';
 
 /** Cloud resource types (spec §9). Only stable enum values; new types require a code change. */
 export type ResourceType =
@@ -67,12 +61,7 @@ export const ALL_RESOURCE_TYPES: readonly ResourceType[] = [
 ] as const;
 
 export type ResourceStatus =
-  | 'RUNNING'
-  | 'STOPPED'
-  | 'PROVISIONING'
-  | 'FAILED'
-  | 'TERMINATED'
-  | 'UNKNOWN';
+  'RUNNING' | 'STOPPED' | 'PROVISIONING' | 'FAILED' | 'TERMINATED' | 'UNKNOWN';
 
 export interface CloudResource {
   readonly id: ResourceId;
