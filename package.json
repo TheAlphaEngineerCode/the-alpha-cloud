@@ -1,6 +1,6 @@
 {
   "name": "the-alpha-cloud",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "description": "The Alpha Cloud — open source Cloud Infrastructure Control Plane for managing, automating and observing cloud, containers, Kubernetes and on-prem infrastructure in a single operational layer.",
   "license": "Apache-2.0",
