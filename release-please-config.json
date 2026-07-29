@@ -1,0 +1,16 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "bootstrap-sha": "fe59f694e624ff438e383772bce85af5502d5de9",
+  "release-type": "node",
+  "include-component-in-tag": false,
+  "draft": true,
+  "force-tag-creation": true,
+  "bump-minor-pre-major": true,
+  "bump-patch-for-minor-pre-major": true,
+  "packages": {
+    ".": {
+      "package-name": "the-alpha-cloud",
+      "changelog-path": "CHANGELOG.md"
+    }
+  }
+}

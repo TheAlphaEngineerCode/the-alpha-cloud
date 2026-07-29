@@ -1,0 +1,8 @@
+# Explicit ownership gives external contributors a reliable review route.
+* @TheAlphaEngineerCode
+
+/.github/       @TheAlphaEngineerCode
+/apps/          @TheAlphaEngineerCode
+/packages/      @TheAlphaEngineerCode
+/infrastructure/ @TheAlphaEngineerCode
+/docs/adr/      @TheAlphaEngineerCode
