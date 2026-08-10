@@ -26,13 +26,13 @@
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,yml,yaml,css}\""
   },
   "devDependencies": {
-    "@eslint/js": "^9.20.0",
+    "@eslint/js": "^10.0.1",
     "@types/node": "^22.13.0",
-    "eslint": "^9.20.0",
+    "eslint": "^10.8.0",
     "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
     "turbo": "^2.5.0",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.65.0"
+    "typescript-eslint": "^8.66.0"
   }
 }
